@@ -1,6 +1,6 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { LayoutDashboard, Package, Truck, Factory, TrendingUp, Bell, Building2, Search, LogOut, FlaskConical, Calendar, ShoppingCart, Siren } from 'lucide-react';
+import { LayoutDashboard, Package, Truck, Factory, TrendingUp, Bell, Building2, Search, LogOut, FlaskConical, Calendar, ShoppingCart, Siren, Users } from 'lucide-react';
 
 const navItems = [
   { section: 'Overview', items: [
@@ -21,6 +21,9 @@ const navItems = [
     { to: '/simulation', icon: FlaskConical, label: 'What-If Simulation' },
     { to: '/traceability', icon: Search, label: 'Traceability' },
   ]},
+  { section: 'Admin', items: [
+    { to: '/users', icon: Users, label: 'User Management' },
+  ]},
 ];
 
 const pageTitles = {
@@ -36,6 +39,7 @@ const pageTitles = {
   '/scheduling': 'Auto-Scheduling',
   '/orders': 'Order Management',
   '/emergency': 'Emergency Actions',
+  '/users': 'User Management',
 };
 
 export default function Layout() {

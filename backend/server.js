@@ -47,6 +47,7 @@ app.use('/api/scheduling', authenticate, require('./routes/scheduling'));
 app.use('/api/manage', authenticate, require('./routes/manage'));
 app.use('/api/emergency', authenticate, require('./routes/emergency'));
 app.use('/api/export', authenticate, require('./routes/export'));
+app.use('/api/users', authenticate, require('./routes/users'));
 
 // Serve frontend static files for browser access (cross-device demo)
 const frontendDistPath = path.join(__dirname, '..', 'frontend', 'dist');

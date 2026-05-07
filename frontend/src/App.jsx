@@ -14,6 +14,7 @@ import Simulation from './pages/Simulation';
 import Scheduling from './pages/Scheduling';
 import OrderManagement from './pages/OrderManagement';
 import Emergency from './pages/Emergency';
+import UserManagement from './pages/UserManagement';
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth();
@@ -39,6 +40,7 @@ export default function App() {
             <Route path="scheduling" element={<Scheduling />} />
             <Route path="orders" element={<OrderManagement />} />
             <Route path="emergency" element={<Emergency />} />
+            <Route path="users" element={<UserManagement />} />
           </Route>
         </Routes>
       </HashRouter>
