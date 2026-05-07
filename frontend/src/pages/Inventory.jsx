@@ -11,20 +11,24 @@ export default function Inventory() {
   const [plantFilter, setPlantFilter] = useState('');
 
   useEffect(() => {
-    const params = {};
-    if (zoneFilter) params.zone = zoneFilter;
-    if (plantFilter) params.plant_id = plantFilter;
-    Promise.all([
-      api.get('/inventory', { params }),
-      api.get('/dashboard')
-    ]).then(([r, d]) => {
-      setItems(r.data);
-      // Extract unique plants from items
-      const plantMap = {};
-      r.data.forEach(i => { if (i.plant_id && i.plant_name) plantMap[i.plant_id] = i.plant_name; });
-      setPlants(Object.entries(plantMap).map(([id, name]) => ({ id: parseInt(id), name })));
-      setLoading(false);
-    }).catch(() => setLoading(false));
+    const fetchData = () => {
+      const params = {};
+      if (zoneFilter) params.zone = zoneFilter;
+      if (plantFilter) params.plant_id = plantFilter;
+      Promise.all([
+        api.get('/inventory', { params }),
+        api.get('/dashboard')
+      ]).then(([r, d]) => {
+        setItems(r.data);
+        const plantMap = {};
+        r.data.forEach(i => { if (i.plant_id && i.plant_name) plantMap[i.plant_id] = i.plant_name; });
+        setPlants(Object.entries(plantMap).map(([id, name]) => ({ id: parseInt(id), name })));
+        setLoading(false);
+      }).catch(() => setLoading(false));
+    };
+    fetchData();
+    const interval = setInterval(fetchData, 5000);
+    return () => clearInterval(interval);
   }, [zoneFilter, plantFilter]);
 
   if (loading) return <div className="loading-container"><div className="spinner"></div></div>;

@@ -10,7 +10,10 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get('/dashboard').then(r => { setData(r.data); setLoading(false); }).catch(() => setLoading(false));
+    const fetchData = () => api.get('/dashboard').then(r => { setData(r.data); setLoading(false); }).catch(() => setLoading(false));
+    fetchData();
+    const interval = setInterval(fetchData, 5000); // Live refresh every 5s
+    return () => clearInterval(interval);
   }, []);
 
   if (loading) return <div className="loading-container"><div className="spinner"></div></div>;
