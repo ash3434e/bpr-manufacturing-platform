@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bpr-manufacturing-platform
+    runtime: node
+    buildCommand: cd frontend && npm install && npm run build && cd ../backend && npm install
+    startCommand: node backend/server.js
+    envVars:
+      - key: PORT
+        value: 8421
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        value: bpr-cloud-production-secret-2026

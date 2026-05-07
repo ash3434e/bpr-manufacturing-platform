@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BPR Platform</string>
+    <string name="title_activity_main">BPR Platform</string>
+    <string name="package_name">com.bpr.manufacturing</string>
+    <string name="custom_url_scheme">com.bpr.manufacturing</string>
+</resources>

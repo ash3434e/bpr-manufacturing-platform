@@ -1,0 +1,11 @@
+node_modules/
+dist-electron/
+frontend/dist/
+frontend/node_modules/
+backend/db/bpr.db
+backend/db/test.db
+*.log
+.env
+.DS_Store
+exe_stdout.log
+exe_stderr.log

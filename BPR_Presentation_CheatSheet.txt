@@ -1,0 +1,36 @@
+BPR MANUFACTURING PLATFORM - PRESENTATION CHEAT SHEET
+
+=========================================
+1. WHAT IS THIS PLATFORM? (The Elevator Pitch)
+=========================================
+The BPR (Buffer Penetration Ratio) Platform is a locally-hosted, offline-ready desktop application designed for manufacturing and factory floors. It completely digitizes supply chain health, production scheduling, and inventory management using the BPR metric to stop stockouts before they happen.
+
+=========================================
+2. KEY FEATURES & DASHBOARDS
+=========================================
+- Dynamic BPR Tracking: Real-time calculation of Buffer Penetration Ratio to give visual Green/Yellow/Red alerts based on safety stock vs actual consumption.
+- Intelligent Auto-Scheduling: The platform automatically schedules production line tasks based on machine capacity, assigning shifts and estimating completion dates dynamically.
+- Emergency Action Center (Decision Engine): When a product hits a "Red Alert" stockout risk, the system automatically recommends alternate suppliers (ranked by risk score/lead time) and offers a one-click Emergency Purchase Requisition flow.
+- Full Factory Management (CRUD): Fully dynamic data-management for Products, Machines, Suppliers, and Orders across multiple plant locations.
+- Seamless Excel Integration: A dedicated "Export Hub" that securely converts live factory data (inventory, orders, schedules) into CSV format for immediate use in Microsoft Excel.
+- Multi-Role Access Control: Role-based dashboards tailored for Admins, Production Managers, Warehouse Managers, and CEOs.
+
+=========================================
+3. OUR TECHNOLOGY STACK
+=========================================
+- FRONTEND (The UI): Built with React.js + Vite. Ensures a lightning-fast, highly responsive user interface without page reloads.
+- BACKEND (The Engine): Built with Node.js and Express.js to process scheduling logic and securely manage business rules.
+- DATABASE: SQLite (WebAssembly sql.js). An ultra-fast, local database cleanly bundled inside a single portable file, eliminating the need for complex SQL server setups.
+- DEPLOYMENT: Electron.js. We wrapped the web-stack into a true Desktop Application.
+
+=========================================
+4. THE "FLEXES" (To impress the judges)
+=========================================
+* Standalone Portable Executable (.exe): 
+  "We engineered the platform to be 100% portable. You can drop the .exe onto a USB drive and run it on any Windows tablet or computer on the factory floor instantly, with ZERO installation or IT setup."
+
+* Offline-First Auto-Healing Database:
+  "Desktop apps run into strict security issues with read-only archives. We engineered an auto-boot sequence where, upon first launch, the software safely extracts a default factory database out of its read-only vault into the user's hidden AppData folder. This grants permanent read/write access and ensures factory data is never lost!"
+
+* Zero Network Conflicts:
+  "We programmed the internal Node.js server to dynamically bind to local network addresses (0.0.0.0), allowing the desktop app to run perfectly even if the factory computer is hosting other web tools, ensuring total isolation."
