@@ -49,8 +49,7 @@ export default function Login() {
         </form>
 
         <div className="login-hint">
-          <p><strong>Demo accounts:</strong> admin / prod_manager / purchase_lead / warehouse_mgr / ceo</p>
-          <p>Password: <strong>password123</strong></p>
+          <p>Contact your administrator for access credentials</p>
         </div>
       </div>
     </div>
