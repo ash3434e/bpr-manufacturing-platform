@@ -210,8 +210,6 @@ async function seed() {
   console.log('\nDefault credentials:');
   console.log('  Username: admin / prod_manager / purchase_lead / warehouse_mgr / ceo');
   console.log('  Password: password123');
-
-  closeDb();
 }
 
 function dateOffset(days) {
@@ -221,7 +219,7 @@ function dateOffset(days) {
 }
 
 if (require.main === module) {
-  seed().catch(console.error);
+  seed().then(() => closeDb()).catch(console.error);
 }
 
 module.exports = { seed };
